@@ -4,7 +4,7 @@ export class Mapa {
         this.#cargarMapaBase();
     }
 
-     fromCoords(lat, lng, zoom = 13) {
+     fromCoords(lat, lng, zoom = 12) {
          this.map.setView([lat, lng],zoom)
          return this;
     }

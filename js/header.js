@@ -7,17 +7,14 @@ export class Header extends EventEmitter {
             nombre: [],
             avatar: []
         });
-        this.nombre = paciente.nombre || '---'
-        this.avatar = paciente.avatar || '/public/images.jpeg'
+        this.nombreCompleto = paciente.getNombreCompleto() || '---'
+        this.avatar = paciente.getAvatar() || '/public/images.jpeg'
 
-        this.emit('nombre', this.nombre)
+        this.emitEventos()
+    }
+
+    emitEventos() {
+        this.emit('nombre', this.nombreCompleto )
         this.emit('avatar', this.avatar)
     }
-
-    cerrarSesion() {
-        alert('Cerrando sesión...');
-        sessionStorage.clear();
-        window.location.href = '/index.html';
-    }
-
 }

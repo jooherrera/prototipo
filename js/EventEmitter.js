@@ -9,8 +9,7 @@ export class EventEmitter {
             this.observadores[evento] = [];
         }
         this.observadores[evento].push(observador);
-
-        this.eliminarEventosPendientes(evento);
+        this.#notificarEventoPendiente(evento);
     }
 
     emit(evento, data) {
@@ -18,16 +17,16 @@ export class EventEmitter {
             this.observadores[evento].forEach(observador => observador(data));
             return;
         }
-
         this.eventosPendientes.push({evento, data});
-
     }
 
-    eliminarEventosPendientes(evento) {
-        this.eventosPendientes = this.eventosPendientes.filter(({evento: e, data}) => {
-            if (e === evento) {
-                this.observadores[evento].forEach(observador => observador(data));
-            }
-        });
+    #notificarEventoPendiente(evento) {
+        const eventoParaEmitir = this.eventosPendientes.find(e => e.evento === evento)
+        this.observadores[evento].forEach(observador => observador(eventoParaEmitir.data))
+        this.#eliminarEventoPendiente(evento)
+    }
+
+    #eliminarEventoPendiente(evento) {
+        this.eventosPendientes = this.eventosPendientes.filter(e => e.evento !== evento);
     }
 }

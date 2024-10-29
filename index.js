@@ -15,8 +15,8 @@ document
 //     .addEventListener('click', loginComoCoordinador)
 
 
-function loginComoPaciente(paciente_id) {
-    localStorage.setItem('paciente', JSON.stringify({paciente_id: paciente_id}))
+async function loginComoPaciente(paciente_id) {
+    localStorage.setItem('paciente_logueado', JSON.stringify(paciente_id))
     window.location.href = 'html/vista-paciente.html'
 }
 

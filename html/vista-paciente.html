@@ -16,7 +16,7 @@
         </div>
         <div class="user-actions">
             <p class="user-name">---</p>
-            <img src="https://github.com/shadcn.png" alt="Avatar del usuario" class="avatar">
+            <img src="" alt="Avatar del usuario" class="avatar">
             <button class="logout-btn">Cerrar sesiónn</button>
         </div>
     </header>
@@ -29,197 +29,29 @@
         <div id="mapa"></div>
     </main>
 </div>
-<div id="surveyModal" class="modal">
+
+<div id="modal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="cerrar">&times;</span>
         <h2>Encuesta de Satisfacción</h2>
-        <form id="surveyForm">
+        <form id="formulario">
             <div class="question">
-                <label for="centerName">Centro de Salud:</label>
-                <input type="text" id="centerName" readonly>
+                <label for="nombreDelCentro">Centro de Salud:</label>
+                <input type="text" id="nombreDelCentro" readonly>
             </div>
 
             <h3>Por favor, califique los siguientes aspectos del 1 al 10:</h3>
 
-            <div class="question">
-                <label for="q1">1. Tiempo de espera para obtener una cita:</label>
-                <select id="q1" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q2">2. Puntualidad en la atención:</label>
-                <select id="q2" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q3">3. Amabilidad del personal de recepción:</label>
-                <select id="q3" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q4">4. Profesionalidad del personal médico:</label>
-                <select id="q4" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q5">5. Claridad de la información proporcionada:</label>
-                <select id="q5" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q6">6. Limpieza y comodidad de las instalaciones:</label>
-                <select id="q6" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q7">7. Disponibilidad de equipos y recursos médicos:</label>
-                <select id="q7" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q8">8. Eficacia del tratamiento recibido:</label>
-                <select id="q8" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q9">9. Facilidad para programar citas de seguimiento:</label>
-                <select id="q9" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div class="question">
-                <label for="q10">10. Satisfacción general con el servicio:</label>
-                <select id="q10" required>
-                    <option value="">Seleccione una opción</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
+            <div id="contenedorDePreguentas"></div>
 
             <div class="question">
                 <label for="comment">Comentarios adicionales:</label>
-                <textarea id="comment" rows="4"></textarea>
+                <textarea id="comment" rows="4" name="comment"></textarea>
             </div>
 
             <button type="submit">Enviar Encuesta</button>
         </form>
-        <div id="surveyResults" class="survey-results" style="display: none;">
+        <div id="resultado" class="survey-results" style="display: none;">
             <h3>Sus respuestas:</h3>
             <div id="resultsContent"></div>
             <button id="closeResults">Cerrar resultados</button>
@@ -231,8 +63,8 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script type="module" src="../js/header.js"></script>
-<script type="module" src="../js/mapa.js"></script>
+<!--<script type="module" src="../js/header.js"></script>-->
+<!--<script type="module" src="../js/mapa.js"></script>-->
 <script type="module" src="../js/vista-paciente.js"></script>
 </body>
 </html>

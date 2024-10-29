@@ -105,15 +105,15 @@ p {
     max-height: 80vh;
     overflow-y: auto;
 }
-.close {
+.cerrar {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
 }
-.close:hover,
-.close:focus {
+.cerrar:hover,
+.cerrar:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -128,7 +128,7 @@ form {
     background-color: #f9f9f9;
     border-radius: 4px;
 }
-label {
+label, p {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
@@ -189,4 +189,17 @@ button[type="submit"]:hover {
     margin-top: 10px;
     border-radius: 4px;
     text-align: center;
+}
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.radio-option input[type="radio"] {
+    margin-right: 5px;
 }
