@@ -23,4 +23,16 @@ export class CentroSalud {
     getNombre() {
         return this.nombre
     }
+
+    getDireccion() {
+        return this.direccion
+    }
+
+    getNombreDeZona(){
+        return this.zona.getNombre()
+    }
+
+    getServicios(){
+        return this.servicios
+    }
 }

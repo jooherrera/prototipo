@@ -1,4 +1,3 @@
-import {Header} from "./header.js";
 import {Mapa} from "./mapa.js";
 import {obtenerPaciente, actualizarPaciente, obtenerEncuesta} from "./repositorio.js";
 
@@ -6,74 +5,58 @@ import {obtenerPaciente, actualizarPaciente, obtenerEncuesta} from "./repositori
 document.addEventListener('DOMContentLoaded', async () => {
     const mapa = Mapa.onContainer('mapa').fromCoords(-34.5309, -58.7113);
     const paciente = await obtenerPaciente()
-    // await obtenerEncuesta()
-    const header = new Header(paciente);
-    header.on('nombre', actualizarNombreEnHeader)
-    header.on('avatar', actualizarAvatarEnHeader);
-
+    actualizarNombreEnHeader(paciente.getNombreCompleto())
+    actualizarAvatarEnHeader(paciente.getAvatar());
     mostrarCentroEnMapa(mapa, paciente)
 
-    document.querySelector('.logout-btn')
-        .addEventListener('click', cerrarSesion);
-
-    // document.getElementById("formulario")
-    //     .addEventListener('submit', (e) => {
-    //         e.preventDefault();
-    //
-    //     })
-
+    document.querySelector('.logout-btn').addEventListener('click', cerrarSesion);
 })
 
-function actualizarNombreEnHeader(nombre) {
-    document.querySelector('.user-name').innerHTML = nombre
-}
-
-function actualizarAvatarEnHeader(avatar) {
-    document.querySelector('.avatar').src = avatar
-}
-
-
-function cerrarSesion() {
-    alert('Cerrando sesión...');
-    localStorage.clear();
-    window.location.href = '/index.html';
-}
-
 function mostrarCentroEnMapa(mapa, paciente) {
-
     const atenciones = paciente.getAtenciones()
 
     atenciones.forEach(atencion => {
         const centroDeSalud = atencion.getCentroDeSalud();
         const coordenada = centroDeSalud.getCoordenada();
         const nombre = centroDeSalud.getNombre();
-        mapa.agregarMarcador(coordenada.latitud, coordenada.longitud, nombre, modal(paciente,atencion, obtenerEncuesta))
+        mapa.agregarMarcador(coordenada.latitud, coordenada.longitud, nombre, () => mostrarCentroDetalle(paciente, atencion))
     })
-
 }
 
-function enviarRespuesta(paciente) {
-    actualizarPaciente(paciente)
-    mostrarMensajeOk("Encuesta enviada")
+function mostrarCentroDetalle(paciente, atencion) {
+    const centroDeSalud = atencion.getCentroDeSalud()
+    generarModalCentroDetalle(paciente, atencion);
+    actualizarDetalleDeCentro(centroDeSalud);
 }
 
+function generarModalCentroDetalle(paciente, atencion){
+    document.getElementById("modal-info-centro-background").style.display = "flex";
+    document.querySelector(".boton-cerrar").addEventListener('click', ocultarCentroDetalle);
+    const btnResponderEncuesta = document.getElementById("boton-responder-encuesta")
+    btnResponderEncuesta.addEventListener("click", mostrarModalEncuesta(paciente,atencion));
+    btnResponderEncuesta.addEventListener("click", ocultarCentroDetalle)
+}
 
-function modal(paciente, atencion) {
+function ocultarCentroDetalle(){
+    document.getElementById("modal-info-centro-background").style.display = "none";
+}
+
+function mostrarModalEncuesta(paciente, atencion) {
     const modal = document.getElementById("modal");
-    const btnCerrar = document.getElementsByClassName("cerrar")[0];
+    const btnCerrar = document.getElementById("cerrar-encuesta");
     const formulario = document.getElementById("formulario");
     const resultado = document.getElementById("resultado");
-    const resultsContent = document.getElementById("resultsContent");
-    const closeResults = document.getElementById("closeResults");
+    const resultadoContenido = document.getElementById("resultadoContenido");
+    const cerrarResultados = document.getElementById("cerrar-resultados");
     const errorMessage = document.getElementById("errorMessage");
 
     const getEncuesta = async ()=>{
         return await obtenerEncuesta()
     }
 
-    btnCerrar.onclick = function () {
+    btnCerrar.addEventListener('click', ()=> {
         modal.style.display = "none";
-    }
+    })
 
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -81,8 +64,7 @@ function modal(paciente, atencion) {
         }
     }
 
-// Manejar el envío del formulario
-    formulario.onsubmit = async function (e) {
+    formulario.addEventListener('submit',async (e)=>{
         e.preventDefault();
         const encuesta = await getEncuesta()
         const formData = new FormData(formulario);
@@ -106,7 +88,7 @@ function modal(paciente, atencion) {
         results += "</ul>";
 
         // Mostrar los resultados
-        resultsContent.innerHTML = results;
+        resultadoContenido.innerHTML = results;
         formulario.style.display = "none";
         resultado.style.display = "block";
 
@@ -114,15 +96,14 @@ function modal(paciente, atencion) {
         // Marcar el centro como encuestado
         paciente.responderEncuenta(atencion.getIdentificardor())
         enviarRespuesta(paciente)
-    };
+    })
 
-    closeResults.onclick = function () {
+    cerrarResultados.addEventListener('click',() => {
         modal.style.display = "none";
         formulario.reset();
-    };
+    })
 
-    return async function abrirModalDePreguntas(nombre) {
-        document.getElementById("nombreDelCentro").value = nombre;
+    return async function abrirModalDePreguntas() {
         modal.style.display = "block";
         if (atencion.estaRespondida()) {
             formulario.style.display = "none";
@@ -139,9 +120,30 @@ function modal(paciente, atencion) {
     }
 }
 
+function actualizarDetalleDeCentro(detalleDeCentro){
+    document.getElementById("details-centro-nombre").innerText = detalleDeCentro.nombre;
+    document.getElementById("details-centro-direccion").innerText = detalleDeCentro.direccion;
+    document.getElementById("details-centro-zona").innerText = detalleDeCentro.zona;
+    document.getElementById("details-centro-servicios").innerText = detalleDeCentro.servicios.join(", ");
+}
 
-function cerrarModal() {
-    document.getElementById("modal").style.display = "none"
+function actualizarNombreEnHeader(nombre) {
+    document.querySelector('.user-name').innerHTML = nombre
+}
+
+function actualizarAvatarEnHeader(avatar) {
+    document.querySelector('.avatar').src = avatar
+}
+
+function cerrarSesion() {
+    alert('Cerrando sesión...');
+    localStorage.clear();
+    window.location.href = '/index.html';
+}
+
+function enviarRespuesta(paciente) {
+    actualizarPaciente(paciente)
+    mostrarMensajeOk("Encuesta enviada")
 }
 
 function mostrarMensajeOk(mensaje) {

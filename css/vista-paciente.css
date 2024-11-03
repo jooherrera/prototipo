@@ -30,7 +30,7 @@ header {
     border-radius: 50%;
     margin-right: 1rem;
 }
-.company-name {
+.app-name {
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -153,23 +153,23 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
-.survey-results {
+.encuesta-resultado {
     margin-top: 20px;
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 4px;
 }
-.survey-results h3 {
+.encuesta-resultado h3 {
     margin-top: 0;
 }
-.survey-results ul {
+.encuesta-resultado ul {
     list-style-type: none;
     padding: 0;
 }
-.survey-results li {
+.encuesta-resultado li {
     margin-bottom: 10px;
 }
-#closeResults {
+#cerrar-resultados {
     background-color: #008CBA;
     color: white;
     padding: 10px;
@@ -179,7 +179,7 @@ button[type="submit"]:hover {
     font-size: 16px;
     margin-top: 10px;
 }
-#closeResults:hover {
+#cerrar-resultados:hover {
     background-color: #007B9A;
 }
 .error-message {
@@ -202,4 +202,86 @@ button[type="submit"]:hover {
 }
 .radio-option input[type="radio"] {
     margin-right: 5px;
+}
+
+.modal-info-centro-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.modal-info-centro {
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.boton-cerrar {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.boton-responder {
+    background-color: #FF7F11;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.modal-info-centro h2 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #666;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.detail-item span {
+    font-weight: bold;
+    color: black;
+    width: 100px;
+}
+
+.detail-item div {
+    font-size: 0.9em;
+    color: #666;
+    width: 150px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    white-space: normal;
 }

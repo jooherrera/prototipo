@@ -3,4 +3,8 @@ export class Zona{
         this.id = zona.id
         this.nombre = zona.nombre
     }
+
+    getNombre() {
+        return this.nombre
+    }
 }

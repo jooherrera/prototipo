@@ -43,7 +43,7 @@
     "dni": "87654321",
     "mail": "laura@example.com",
     "telefono": "+54 11 9876-5432",
-    "avatar": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzQ88-IrQXtqH6pchj4vJNF-eB3Jf-zUfexw&s",
     "direccion": "Av. Principal 456, San Miguel, Buenos Aires",
     "ultimaConexion": "",
     "atenciones": [
@@ -55,8 +55,8 @@
           "nombre": "Centro de Salud Barrio Mitre",
           "direccion": "Av. Balbín 3100, San Miguel, Buenos Aires",
           "coordenada": {
-            "latitud": -34.53613141456351,
-            "longitud": -58.7205511186567
+            "latitud": -34.570643,
+            "longitud": -58.737320
           },
           "servicios": [
             "Medicina General",
@@ -79,7 +79,7 @@
     "dni": "23456789",
     "mail": "gabriel.lopez@example.com",
     "telefono": "+54 11 8888-9999",
-    "avatar": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png",
+    "avatar": "https://img.freepik.com/psd-premium/retrato-sonriente-hombre-dibujos-animados-3d-aislado-sobre-fondo-transparente-png-psd_888962-1570.jpg",
     "direccion": "Calle Libertad 789, Malvinas Argentinas, Buenos Aires",
     "ultimaConexion": "",
     "atenciones": [
