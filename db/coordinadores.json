@@ -1,38 +1,81 @@
-{
-  "coordinators": [
+[
     {
-      "coordinator_id": "3001",
-      "name": "Carlos",
-      "last_name": "Pérez",
-      "dni": "23456789",
-      "email": "carlos.perez@example.com",
-      "phone": "+54 11 1234-5678",
-      "role": "Coordinador de Zona Norte",
-      "profile_photo": "https://example.com/profiles/carlos_perez.jpg",
-      "legajo": "00123",
-      "account": {
-        "username": "00123",
-        "password": "hashed_password_789",
-        "created_at": "2024-01-05T11:00:00Z",
-        "last_login": "2024-09-20T14:20:00Z"
-      }
+        "coordinator_id": "1",
+        "name": "Carlos",
+        "last_name": "Pérez",
+        "dni": "37284948",
+        "email": "carlos.perez@example.com",
+        "phone": "+54 11 1234-5678",
+        "role": "Coordinador de Zona Norte",
+        "profile_photo": "https://example.com/profiles/carlos_perez.jpg",
+        "legajo": "00123",
+        "ultimaConexion": "2024-09-20T14:20:00Z",
+        "zona": {
+            "id": 1,
+            "nombre": "San Miguel",
+            "centrosDeSalud": [
+                {
+                    "id": "001",
+                    "nombre": "Hospital Larcade",
+                    "direccion": "Av. Presidente Perón 2315, San Miguel, Buenos Aires",
+                    "coordenada": {
+                        "latitud": -34.53613141456351,
+                        "longitud": -58.7205511186567
+                    },
+                    "servicios": [
+                        "Medicina General",
+                        "Pediatría",
+                        "Vacunación",
+                        "Ginecología"
+                    ]
+                },
+                {
+                    "id": "002",
+                    "nombre": "Centro de Salud Barrio Mitre",
+                    "direccion": "Av. Balbín 3100, San Miguel, Buenos Aires",
+                    "coordenada": {
+                        "latitud": -34.570643,
+                        "longitud": -58.737320
+                    },
+                    "servicios": [
+                        "Medicina General",
+                        "Vacunación",
+                        "Odontología"
+                    ]
+                }
+            ]
+        }
     },
     {
-      "coordinator_id": "3002",
-      "name": "María",
-      "last_name": "López",
-      "dni": "34567890",
-      "email": "maria.lopez@example.com",
-      "phone": "+54 11 8765-4321",
-      "role": "Coordinadora de Zona Sur",
-      "profile_photo": "https://example.com/profiles/maria_lopez.jpg",
-      "legajo": "00124",
-      "account": {
-        "username": "00124",
-        "password": "hashed_password_101",
-        "created_at": "2024-02-01T10:30:00Z",
-        "last_login": "2024-09-18T11:00:00Z"
-      }
+        "coordinator_id": "2",
+        "name": "María",
+        "last_name": "López",
+        "dni": "34567890",
+        "email": "maria.lopez@example.com",
+        "phone": "+54 11 8765-4321",
+        "role": "Coordinadora de Zona Sur",
+        "profile_photo": "https://example.com/profiles/maria_lopez.jpg",
+        "legajo": "00124",
+        "ultimaConexion": "2024-09-18T11:00:00Z",
+        "zona": {
+            "id": 2,
+            "nombre": "Malvinas Argentinas",
+            "centrosDeSalud": [
+                {
+                    "id": "003",
+                    "nombre": "Hospital de Trauma y Emergencias",
+                    "direccion": "Ruta 8 y Av. Olivos, Malvinas Argentinas, Buenos Aires",
+                    "coordenada": {
+                        "latitud": -34.495757,
+                        "longitud": -58.709135
+                    },
+                    "servicios": [
+                        "Traumatología",
+                        "Emergencias",
+                        "Diagnóstico por Imágenes"
+                    ]
+                }
+            ]
+        }
     }
-  ]
-}
+]

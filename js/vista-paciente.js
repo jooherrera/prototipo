@@ -1,7 +1,6 @@
 import {Mapa} from "./mapa.js";
 import {obtenerPaciente, actualizarPaciente, obtenerEncuesta} from "./repositorio.js";
 
-
 document.addEventListener('DOMContentLoaded', async () => {
     const mapa = Mapa.onContainer('mapa').fromCoords(-34.5309, -58.7113);
     const paciente = await obtenerPaciente()
@@ -71,7 +70,6 @@ function mostrarModalEncuesta(paciente, atencion) {
         let results = "<ul>";
         // Recorrer las entradas del FormData
         for (const [name, value] of formData.entries()) {
-            console.log(name)
             if (name === "comment") {
                 // Si es el comentario, lo agregamos con un estilo especial
                 results += value ? `<li><strong>Comentario adicional:</strong> ${value}</li>`: '';
@@ -123,7 +121,7 @@ function mostrarModalEncuesta(paciente, atencion) {
 function actualizarDetalleDeCentro(detalleDeCentro){
     document.getElementById("details-centro-nombre").innerText = detalleDeCentro.nombre;
     document.getElementById("details-centro-direccion").innerText = detalleDeCentro.direccion;
-    document.getElementById("details-centro-zona").innerText = detalleDeCentro.zona;
+    document.getElementById("details-centro-zona").innerText = detalleDeCentro.zona.getNombre();
     document.getElementById("details-centro-servicios").innerText = detalleDeCentro.servicios.join(", ");
 }
 
