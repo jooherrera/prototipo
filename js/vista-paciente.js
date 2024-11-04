@@ -1,24 +1,25 @@
-import {Mapa} from "./mapa.js";
 import {obtenerPaciente, actualizarPaciente, obtenerEncuesta} from "./repositorio.js";
+import {Header} from "./header.js";
+import {Mapa} from "./mapa.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const mapa = Mapa.onContainer('mapa').fromCoords(-34.5309, -58.7113);
+    const mapa =  Mapa.onContainer('mapa').fromCoords(-34.5309, -58.7113);
     const paciente = await obtenerPaciente()
-    actualizarNombreEnHeader(paciente.getNombreCompleto())
-    actualizarAvatarEnHeader(paciente.getAvatar());
-    mostrarCentroEnMapa(mapa, paciente)
+    const header = new Header();
 
+    header.actualizarNombre(paciente.getNombreCompleto())
+    header.actualizarAvatar(paciente.getAvatar());
+    mostrarCentroEnMapa(mapa,paciente)
     document.querySelector('.logout-btn').addEventListener('click', cerrarSesion);
 })
 
 function mostrarCentroEnMapa(mapa, paciente) {
     const atenciones = paciente.getAtenciones()
-
     atenciones.forEach(atencion => {
         const centroDeSalud = atencion.getCentroDeSalud();
         const coordenada = centroDeSalud.getCoordenada();
         const nombre = centroDeSalud.getNombre();
-        mapa.agregarMarcador(coordenada.latitud, coordenada.longitud, nombre, () => mostrarCentroDetalle(paciente, atencion))
+        mapa.agregarMarcador(coordenada.latitud,coordenada.longitud,nombre,()=> mostrarCentroDetalle(paciente,atencion))
     })
 }
 
@@ -125,13 +126,6 @@ function actualizarDetalleDeCentro(detalleDeCentro){
     document.getElementById("details-centro-servicios").innerText = detalleDeCentro.servicios.join(", ");
 }
 
-function actualizarNombreEnHeader(nombre) {
-    document.querySelector('.user-name').innerHTML = nombre
-}
-
-function actualizarAvatarEnHeader(avatar) {
-    document.querySelector('.avatar').src = avatar
-}
 
 function cerrarSesion() {
     alert('Cerrando sesión...');

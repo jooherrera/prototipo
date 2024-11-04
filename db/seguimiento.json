@@ -1,0 +1,102 @@
+[
+    {
+        "nombre": "Jenny White",
+        "email": "jenny.white@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Sam Smith",
+        "email": "sam.smith@gmail.com",
+        "feedback": false
+    },
+    {
+        "nombre": "Linda Johnson",
+        "email": "linda.johnson@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Mike Davis",
+        "email": "mike.davis@gmail.com",
+        "feedback": "Neutral"
+    },
+    {
+        "nombre": "Jessica Brown",
+        "email": "jessica.brown@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Robert Lee",
+        "email": "robert.lee@gmail.com",
+        "feedback": false
+    },
+    {
+        "nombre": "Emily Green",
+        "email": "emily.green@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Paul Walker",
+        "email": "paul.walker@gmail.com",
+        "feedback": "Neutral"
+    },
+    {
+        "nombre": "Laura King",
+        "email": "laura.king@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Peter Parker",
+        "email": "peter.parker@gmail.com",
+        "feedback": false
+    },
+    {
+        "nombre": "Sarah Connor",
+        "email": "sarah.connor@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Chris Evans",
+        "email": "chris.evans@gmail.com",
+        "feedback": "Neutral"
+    },
+    {
+        "nombre": "Anna Scott",
+        "email": "anna.scott@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Tom Hardy",
+        "email": "tom.hardy@gmail.com",
+        "feedback": false
+    },
+    {
+        "nombre": "Diana Prince",
+        "email": "diana.prince@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "John Doe",
+        "email": "john.doe@gmail.com",
+        "feedback": "Neutral"
+    },
+    {
+        "nombre": "Mary Poppins",
+        "email": "mary.poppins@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Bruce Wayne",
+        "email": "bruce.wayne@gmail.com",
+        "feedback": false
+    },
+    {
+        "nombre": "Clark Kent",
+        "email": "clark.kent@gmail.com",
+        "feedback": true
+    },
+    {
+        "nombre": "Lois Lane",
+        "email": "lois.lane@gmail.com",
+        "feedback": "Neutral"
+    }
+]

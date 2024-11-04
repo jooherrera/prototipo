@@ -1,4 +1,5 @@
 import {Zona} from "./zona.js";
+import {AtencionConPaciente} from "./atencion.js";
 
 export class CentroSalud {
     constructor(centro) {
@@ -10,7 +11,6 @@ export class CentroSalud {
             longitud: centro.coordenada.longitud
         }
         this.servicios = centro.servicios
-        this.zona = new Zona(centro.zona)
     }
 
     getCoordenada() {
@@ -24,15 +24,49 @@ export class CentroSalud {
         return this.nombre
     }
 
+    getId(){
+        return this.id
+    }
+
     getDireccion() {
         return this.direccion
     }
 
-    getNombreDeZona(){
+
+    getServicios() {
+        return this.servicios
+    }
+}
+
+export class CentroSaludConZona extends CentroSalud {
+    constructor(centro) {
+        super(centro);
+        this.zona = new Zona(centro.zona)
+    }
+
+    getNombreDeZona() {
         return this.zona.getNombre()
     }
 
-    getServicios(){
-        return this.servicios
+}
+
+export class CentroSaludConAtenciones extends CentroSalud {
+    constructor(centro) {
+        super(centro);
+        this.atenciones = centro.atenciones.map(atencion => new AtencionConPaciente(atencion))
+    }
+
+    getAtenciones(){
+        return this.atenciones
+    }
+
+    getPromedioDeEncuestas(){
+        let completas = 0
+        this.atenciones.forEach(atencion => {
+            if(atencion.estaRespondida()){
+                completas++
+            }
+        })
+        return `${completas}/${this.atenciones.length}`
     }
 }
